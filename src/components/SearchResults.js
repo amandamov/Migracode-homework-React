@@ -1,5 +1,6 @@
 import React from "react";
 import fakeBookings from "../data/fakeBookings.json";
+import moment from "moment";
 
 const SearchResults = props => {
   return (
@@ -19,6 +20,9 @@ const SearchResults = props => {
       </thead>
       <tbody>
         {fakeBookings.map(booking => {
+          let checkIn = moment(booking.checkInDate);
+          let checkOut = moment(booking.checkOutDate);
+          let numberNights = checkOut.diff(checkIn, "days");
           return (
             <tr>
               <td>{booking.id}</td>
@@ -29,6 +33,7 @@ const SearchResults = props => {
               <td>{booking.roomId}</td>
               <td>{booking.checkInDate}</td>
               <td>{booking.checkOutDate}</td>
+              <td>{numberNights}</td>
             </tr>
           );
         })}
