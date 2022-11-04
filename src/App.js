@@ -7,6 +7,7 @@ import Heading from "./components/Heading.js";
 import RenderiCards from "./components/RenderiCards";
 import Footer from "./components/Footer";
 import SearchResults from "./components/SearchResults";
+import Restaurant from "./components/Restaurant";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <Heading />
       <RenderiCards />
       <Bookings />
+      <Restaurant />
       <Footer
         array={[
           "123 Fake Street, London, E1 4UD",
