@@ -1,7 +1,5 @@
-import React from "react";
-import fakeBookings from "../data/fakeBookings.json";
-import moment from "moment";
-import Bookings from "./Bookings";
+import React, { useState } from "react";
+import Row from "./Row";
 
 const SearchResults = props => {
   return (
@@ -21,22 +19,7 @@ const SearchResults = props => {
       </thead>
       <tbody>
         {props.results.map(booking => {
-          let checkIn = moment(booking.checkInDate);
-          let checkOut = moment(booking.checkOutDate);
-          let numberNights = checkOut.diff(checkIn, "days");
-          return (
-            <tr>
-              <td>{booking.id}</td>
-              <td>{booking.title}</td>
-              <td>{booking.firstName}</td>
-              <td>{booking.surname}</td>
-              <td>{booking.email}</td>
-              <td>{booking.roomId}</td>
-              <td>{booking.checkInDate}</td>
-              <td>{booking.checkOutDate}</td>
-              <td>{numberNights}</td>
-            </tr>
-          );
+          return <Row booking={booking} />;
         })}
       </tbody>
     </table>
