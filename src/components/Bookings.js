@@ -7,11 +7,11 @@ const Bookings = () => {
   const [bookings, setBookings] = useState([]);
 
   useEffect(() => {
-    console.log("show a message.");
     fetch("https://cyf-react.glitch.me")
       .then(res => res.json())
       .then(data => {
         setBookings(data);
+        console.log("show a message.");
       });
   }, []);
 

@@ -3,7 +3,7 @@ import Row from "./Row";
 
 const SearchResults = props => {
   return (
-    <table class="table">
+    <table className="table">
       <thead>
         <tr>
           <th scope="col">Id</th>
@@ -19,7 +19,7 @@ const SearchResults = props => {
       </thead>
       <tbody>
         {props.results.map(booking => {
-          return <Row booking={booking} />;
+          return <Row key={booking.id} booking={booking} />;
         })}
       </tbody>
     </table>

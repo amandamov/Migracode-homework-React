@@ -12,7 +12,7 @@ const Footer = props => {
       <footer>
         <ul>
           {props.array.map(info => (
-            <li>{info}</li>
+            <li key={info}>{info}</li>
           ))}
         </ul>
       </footer>
