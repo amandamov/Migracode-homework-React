@@ -3,15 +3,26 @@ import RenderCards from "./RenderiCards.js";
 import Search from "./Search.js";
 import SearchResults from "./SearchResults.js";
 
+// correct URL: https://cyf-react.glitch.me
+// error URL: https://cyf-react.glitch.me/error
+
 const Bookings = () => {
   const [bookings, setBookings] = useState([]);
 
   useEffect(() => {
     fetch("https://cyf-react.glitch.me")
-      .then(res => res.json())
+      .then(res => {
+        if (res.status != 200) {
+          alert("Sorry. There was an error with the data.");
+        }
+        return res.json();
+      })
       .then(data => {
         setBookings(data);
         console.log("show a message.");
+      })
+      .catch(error => {
+        console.log(error);
       });
   }, []);
 
