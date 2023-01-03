@@ -25,7 +25,7 @@ const Row = props => {
       <td>{numberNights}</td>
       <td>
         <SearchButton
-          onClick={props.changeCustomerId(props.booking.id)}
+          onClick={() => props.changeCustomerId(props.booking.id)}
           content={"Customer Profile"}
         />
       </td>
