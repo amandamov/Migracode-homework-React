@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import moment from "moment";
+import SearchButton from "./SearchButton";
 
 const Row = props => {
   const [clicked, setClicked] = useState(false);
@@ -22,6 +23,12 @@ const Row = props => {
       <td>{props.booking.checkInDate}</td>
       <td>{props.booking.checkOutDate}</td>
       <td>{numberNights}</td>
+      <td>
+        <SearchButton
+          onClick={props.changeCustomerId(props.booking.id)}
+          content={"Customer Profile"}
+        />
+      </td>
     </tr>
   );
 };
